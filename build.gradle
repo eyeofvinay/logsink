@@ -1,0 +1,48 @@
+/*
+    ---STEPS---
+    make an empty dir
+    % init gradle
+    make structure ./src/main/java and add java classes in here
+    % ./gradlew tasks
+    check that build task is not present as of now
+    add java plugin in plugins in build.gradle
+    run tasks task again - note that you can now run build task
+    % ./gradlew build
+    note that now 'build' folder is now added to the root dir
+    in ./build/libs is the jar file necessary to run the project
+    note that % java -jar build/libs/gradle-tut.jar will not work rn
+    now configure the jar task in build.gradle
+    that's it!
+    % java -jar build/libs/gradle-tut.jar should work fine now
+    for adding dependencies, ie using external jar add dependencies in build.gradle and add specify repositories - eg mavenCentral()
+    add test classes in src/test/java/
+    build task also performs testing. to check tests report go to build/tests/test/
+*/
+
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+//configuring the 'jar' task
+jar {
+    manifest {
+        //include the package while running task else ClassNotFoundException
+        attributes 'Main-Class': 'FirstClass'
+    }
+}
