@@ -1,5 +1,5 @@
 /*
-    ---STEPS---
+    ---HIGH LEVEL TERMINAL GRADLE PROJECT SETUP---
     make an empty dir
     % init gradle
     make structure ./src/main/java and add java classes in here
@@ -48,7 +48,7 @@ test {
     useJUnitPlatform()
 }
 
-//configuring the 'jar' task
+//configuring the jar build
 jar {
     manifest {
         //include the package while running task else ClassNotFoundException
