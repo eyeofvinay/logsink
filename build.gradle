@@ -21,6 +21,8 @@
 
 plugins {
     id 'java'
+    id "com.google.protobuf" version "0.8.12"
+    id 'application'
 }
 
 group 'org.example'
@@ -30,9 +32,12 @@ repositories {
     mavenCentral()
 }
 
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'com.google.protobuf:protobuf-java:3.19.4'
 
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
     implementation 'org.apache.kafka:kafka-clients:3.2.0'
@@ -42,16 +47,12 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     implementation 'org.slf4j:slf4j-simple:1.7.36'
+    testImplementation 'junit:junit:4.13.1'
 }
 
 test {
-    useJUnitPlatform()
-}
 
-//configuring the jar build
-jar {
-    manifest {
-        //include the package while running task else ClassNotFoundException
-        attributes 'Main-Class': 'LogConsumer'
-    }
 }
+ application {
+     mainClass = 'LogConsumer'
+ }
