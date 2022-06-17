@@ -33,7 +33,7 @@ public class Producer {
         byte[] value = employee.toByteArray();
 
         //create a producer record
-        ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, value);
+        ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, "key1", value);
 
         //sending the data - asynchronous
         producer.send(producerRecord);
