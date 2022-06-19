@@ -6,7 +6,7 @@ public class ExampleTest {
     public void testAdd() {
         Example example = new Example();
         int actual = example.add(1, 2);
-        int expected= 3;
+        int expected= 4;
         Assert.assertEquals(expected, actual);
     }
 }

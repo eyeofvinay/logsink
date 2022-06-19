@@ -11,11 +11,13 @@ import java.util.Properties;
 
 
 public class Producer {
+    String topicName = "topic6";
+    KafkaProducer<String, byte[]> producer;
+
     private static final Logger log = LoggerFactory.getLogger(Producer.class.getSimpleName());
 
-    public static void main(String[] args) {
+    public Producer() {
         //constants
-        String topicName = "topic3";
         String bootstrapServer = "127.0.0.1:9092";
 
         //create producer properties
@@ -25,11 +27,12 @@ public class Producer {
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
 
         //create producer
-        KafkaProducer<String, byte[]> producer = new KafkaProducer<>(properties);
+        producer = new KafkaProducer<>(properties);
+    }
 
-        //build protobuf object and convert to bytearray
-        //Employee employee = Employee.newBuilder().setName("Kevin B").setRole("DE--SDE").build();
-        Employee employee = Employee.newBuilder().setName("Vinay V").setRole("DE--Intern").build();
+    public void produce(String name, String role) {
+        //build protobuf from String data
+        Employee employee = Employee.newBuilder().setName(name).setRole(role).build();
         byte[] value = employee.toByteArray();
 
         //create a producer record
@@ -38,6 +41,26 @@ public class Producer {
         //sending the data - asynchronous
         producer.send(producerRecord);
 
+        //flush and close client
+        producer.close();
+    }
+
+    public void produce(String []employees) {
+        for(int i = 0; i < employees.length; i++) {
+            //split encoded Emplyoee data into name and role
+            String name = employees[i].split(":")[0];
+            String role = employees[i].split(":")[1];
+
+            //build protobuf from String data
+            Employee employee = Employee.newBuilder().setName(name).setRole(role).build();
+            byte[] value = employee.toByteArray();
+
+            //create a producer record
+            ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, "key1", value);
+
+            //sending the data - asynchronous
+            producer.send(producerRecord);
+        }
         //flush and close client
         producer.close();
     }
