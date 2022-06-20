@@ -31,7 +31,7 @@ public class ConsumerTest {
 
         //create topic
         CreateTopicsResult newTopic = adminClient.createTopics(Collections.singleton(new NewTopic(topicName, NUM_PARTITIONS, REPLICATION_FACTOR)));
-        adminClient.close(Duration.ofSeconds(30));
+        adminClient.close();
     }
 
     @Test
@@ -58,6 +58,7 @@ public class ConsumerTest {
         AdminClient adminClient = AdminClient.create(properties);
         DeleteTopicsResult deleteTopicsResult = adminClient.deleteTopics(Arrays.asList(topicName));
         deleteTopicsResult.all().get();
+        adminClient.close();
     }
 
     private Employee[] mapStringToProtobuf(String[] strings) {
