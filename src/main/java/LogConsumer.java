@@ -13,14 +13,19 @@ import java.util.Collections;
 import java.util.Properties;
 
 public class LogConsumer {
-    String topic = "topic6";
+    String topicName;
+    String group_id;
+    String bootstrapServer;
+    String autoOffsetRest;
     KafkaConsumer<String, byte[]> consumer;
     private static final Logger log = LoggerFactory.getLogger(LogConsumer.class.getSimpleName());
 
-    public LogConsumer() {
-        //constants
-        String group_id = "consumer-group-16june";
-        String bootstrapServer = "127.0.0.1:9092";
+    public LogConsumer(String group_id, String topicName, String bootstrapServer, String autoOffsetRest) {
+        this.topicName = topicName;
+        this.group_id = group_id;
+        this.bootstrapServer = bootstrapServer;
+        this.autoOffsetRest = autoOffsetRest;
+
 
         //create consumer properties
         Properties properties = new Properties();
@@ -28,7 +33,7 @@ public class LogConsumer {
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, group_id);
-        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetRest);
 
         //create consumer using above properties
         consumer = new KafkaConsumer<>(properties);
@@ -36,7 +41,7 @@ public class LogConsumer {
 
     public String subscribeAndConsume() throws InvalidProtocolBufferException {
         //subscribe consumer to topic
-        consumer.subscribe(Collections.singletonList(topic));
+        consumer.subscribe(Collections.singletonList(topicName));
 
         //start consuming
         while(true) {
@@ -50,11 +55,11 @@ public class LogConsumer {
         }
     }
 
-    public String[] subscribeAndConsumeTest(int numberOfMessages) throws InvalidProtocolBufferException {
-        String[] messages = new String[numberOfMessages];
+    public Employee[] subscribeAndConsumeTest(int numberOfMessages) throws InvalidProtocolBufferException {
+        Employee[] messages = new Employee[numberOfMessages];
 
         //subscribe consumer to topic
-        consumer.subscribe(Collections.singletonList(topic));
+        consumer.subscribe(Collections.singletonList(topicName));
 
         //start consuming
         int i = 0;
@@ -66,8 +71,7 @@ public class LogConsumer {
                     //parse protobuf from byte array
                     Employee employee = Employee.parseFrom(record.value());
                     log.info("KEY-" + record.key() + ", VALUE-" + employee.toString());
-                    String encodedEmployee = employee.getName()+":"+employee.getRole();
-                    messages[i++] = encodedEmployee;
+                    messages[i++] = employee;
                     if(i == numberOfMessages) {
                         consumer.close();
                         return messages;

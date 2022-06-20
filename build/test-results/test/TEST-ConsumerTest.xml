@@ -1,9 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ConsumerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-19T20:30:37" hostname="vinays" time="0.725">
+<testsuite name="ConsumerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-20T13:31:09" hostname="vinays" time="1.243">
   <properties/>
-  <testcase name="testConsumedEarliest" classname="ConsumerTest" time="0.725"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[[Test worker] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+  <testcase name="testConsumedEarliest" classname="ConsumerTest" time="1.243"/>
+  <system-out><![CDATA[Created topic-topic-836
+produced to kafka - name: "Vinay"
+role: "intern"
+
+produced to kafka - name: "Kevin"
+role: "SDE-DE"
+
+produced to kafka - name: "John"
+role: "HR"
+
+produced to kafka - name: "Ram"
+role: "Product Manager"
+
+produced to kafka - name: "Tom"
+role: "IT guy"
+
+]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	bootstrap.servers = [127.0.0.1:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.2.0
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 38103ffaa962ef50
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655731869472
+[kafka-admin-client-thread | adminclient-1] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+[kafka-admin-client-thread | adminclient-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[kafka-admin-client-thread | adminclient-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[kafka-admin-client-thread | adminclient-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[Test worker] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
 	acks = -1
 	batch.size = 16384
 	bootstrap.servers = [127.0.0.1:9092]
@@ -92,13 +185,13 @@
 [Test worker] INFO org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
 [Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.2.0
 [Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 38103ffaa962ef50
-[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655670637882
-[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic6-0 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
-[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic6-1 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
-[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic6-2 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655731870136
 [kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 7F7xlzY7RHGLxwd55NyiUA
+[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=producer-1] ProducerId set to 7016 with epoch 0
+[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic-836-0 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
+[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic-836-1 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
+[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition topic-836-2 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
 [Test worker] INFO org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
-[kafka-producer-network-thread | producer-1] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=producer-1] ProducerId set to 6000 with epoch 0
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
@@ -110,7 +203,7 @@
 	bootstrap.servers = [127.0.0.1:9092]
 	check.crcs = true
 	client.dns.lookup = use_all_dns_ips
-	client.id = consumer-consumer-group-16june-1
+	client.id = consumer-consumer-group-651-1
 	client.rack = 
 	connections.max.idle.ms = 540000
 	default.api.timeout.ms = 60000
@@ -119,7 +212,7 @@
 	fetch.max.bytes = 52428800
 	fetch.max.wait.ms = 500
 	fetch.min.bytes = 1
-	group.id = consumer-group-16june
+	group.id = consumer-group-651
 	group.instance.id = null
 	heartbeat.interval.ms = 3000
 	interceptor.classes = []
@@ -198,50 +291,124 @@
 
 [Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.2.0
 [Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 38103ffaa962ef50
-[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655670638255
-[Test worker] INFO org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Subscribed to topic(s): topic6
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655731870300
+[Test worker] INFO org.apache.kafka.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Subscribed to topic(s): topic-836
 [Test worker] INFO LogConsumer - Polling...
-[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting the last seen epoch of partition topic6-0 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
-[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting the last seen epoch of partition topic6-1 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
-[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting the last seen epoch of partition topic6-2 to 0 since the associated topicId changed from null to 3WnAYJHfSq6eC8ZgHhWs8w
-[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Cluster ID: 7F7xlzY7RHGLxwd55NyiUA
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Discovered group coordinator 192.168.1.81:9092 (id: 2147483647 rack: null)
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] (Re-)joining group
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Request joining group due to: need to re-join with the given member-id: consumer-consumer-group-16june-1-190ca9a2-bd98-4657-aea9-e0b9b0e28448
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] (Re-)joining group
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Successfully joined group with generation Generation{generationId=25, memberId='consumer-consumer-group-16june-1-190ca9a2-bd98-4657-aea9-e0b9b0e28448', protocol='range'}
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Finished assignment for group at generation 25: {consumer-consumer-group-16june-1-190ca9a2-bd98-4657-aea9-e0b9b0e28448=Assignment(partitions=[topic6-0, topic6-1, topic6-2])}
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Successfully synced group in generation Generation{generationId=25, memberId='consumer-consumer-group-16june-1-190ca9a2-bd98-4657-aea9-e0b9b0e28448', protocol='range'}
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Notifying assignor about the new Assignment(partitions=[topic6-0, topic6-1, topic6-2])
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Adding newly assigned partitions: topic6-0, topic6-1, topic6-2
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Found no committed offset for partition topic6-2
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Found no committed offset for partition topic6-1
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Found no committed offset for partition topic6-0
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting offset for partition topic6-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting offset for partition topic6-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting offset for partition topic6-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
-[Test worker] INFO LogConsumer - key:key1, value:name: "Vinay"
+[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting the last seen epoch of partition topic-836-0 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
+[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting the last seen epoch of partition topic-836-1 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
+[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting the last seen epoch of partition topic-836-2 to 0 since the associated topicId changed from null to x6yGAtN1Q3ybznM6aQumrw
+[Test worker] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Cluster ID: 7F7xlzY7RHGLxwd55NyiUA
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Discovered group coordinator 192.168.1.81:9092 (id: 2147483647 rack: null)
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] (Re-)joining group
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Request joining group due to: need to re-join with the given member-id: consumer-consumer-group-651-1-03158096-5cbe-4014-8488-64a16e0d24b8
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] (Re-)joining group
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Successfully joined group with generation Generation{generationId=1, memberId='consumer-consumer-group-651-1-03158096-5cbe-4014-8488-64a16e0d24b8', protocol='range'}
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Finished assignment for group at generation 1: {consumer-consumer-group-651-1-03158096-5cbe-4014-8488-64a16e0d24b8=Assignment(partitions=[topic-836-0, topic-836-1, topic-836-2])}
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Successfully synced group in generation Generation{generationId=1, memberId='consumer-consumer-group-651-1-03158096-5cbe-4014-8488-64a16e0d24b8', protocol='range'}
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Notifying assignor about the new Assignment(partitions=[topic-836-0, topic-836-1, topic-836-2])
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Adding newly assigned partitions: topic-836-0, topic-836-1, topic-836-2
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Found no committed offset for partition topic-836-0
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Found no committed offset for partition topic-836-1
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Found no committed offset for partition topic-836-2
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting offset for partition topic-836-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting offset for partition topic-836-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting offset for partition topic-836-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.1.81:9092 (id: 0 rack: null)], epoch=0}}.
+[Test worker] INFO LogConsumer - Polling...
+[Test worker] INFO LogConsumer - KEY-key1, VALUE-name: "Vinay"
 role: "intern"
 
-[Test worker] INFO LogConsumer - key:key1, value:name: "Kevin"
+[Test worker] INFO LogConsumer - KEY-key1, VALUE-name: "Kevin"
 role: "SDE-DE"
 
-[Test worker] INFO LogConsumer - key:key1, value:name: "John"
+[Test worker] INFO LogConsumer - KEY-key1, VALUE-name: "John"
 role: "HR"
 
-[Test worker] INFO LogConsumer - key:key1, value:name: "Ram"
+[Test worker] INFO LogConsumer - KEY-key1, VALUE-name: "Ram"
 role: "Product Manager"
 
-[Test worker] INFO LogConsumer - key:key1, value:name: "Tom"
+[Test worker] INFO LogConsumer - KEY-key1, VALUE-name: "Tom"
 role: "IT guy"
 
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Revoke previously assigned partitions topic6-0, topic6-1, topic6-2
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Member consumer-consumer-group-16june-1-190ca9a2-bd98-4657-aea9-e0b9b0e28448 sending LeaveGroup request to coordinator 192.168.1.81:9092 (id: 2147483647 rack: null) due to the consumer is being closed
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Resetting generation and member id due to: consumer pro-actively leaving the group
-[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-16june-1, groupId=consumer-group-16june] Request joining group due to: consumer pro-actively leaving the group
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Revoke previously assigned partitions topic-836-0, topic-836-1, topic-836-2
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Member consumer-consumer-group-651-1-03158096-5cbe-4014-8488-64a16e0d24b8 sending LeaveGroup request to coordinator 192.168.1.81:9092 (id: 2147483647 rack: null) due to the consumer is being closed
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Resetting generation and member id due to: consumer pro-actively leaving the group
+[Test worker] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-consumer-group-651-1, groupId=consumer-group-651] Request joining group due to: consumer pro-actively leaving the group
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
 [Test worker] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-consumer-group-16june-1 unregistered
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-consumer-group-651-1 unregistered
+[Test worker] INFO org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	bootstrap.servers = [127.0.0.1:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.2.0
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 38103ffaa962ef50
+[Test worker] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1655731870495
 ]]></system-err>
 </testsuite>

@@ -11,18 +11,19 @@ import java.util.Properties;
 
 
 public class Producer {
-    String topicName = "topic6";
+    String topicName;
+    String bootStrapServer;
     KafkaProducer<String, byte[]> producer;
 
     private static final Logger log = LoggerFactory.getLogger(Producer.class.getSimpleName());
 
-    public Producer() {
-        //constants
-        String bootstrapServer = "127.0.0.1:9092";
+    public Producer(String topicName, String bootStrapServer) {
+        this.topicName = topicName;
+        this.bootStrapServer = bootStrapServer;
 
         //create producer properties
         Properties properties = new Properties();
-        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootStrapServer);
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
 
@@ -45,15 +46,10 @@ public class Producer {
         producer.close();
     }
 
-    public void produce(String []employees) {
+    public void produce(Employee []employees) {
         for(int i = 0; i < employees.length; i++) {
-            //split encoded Emplyoee data into name and role
-            String name = employees[i].split(":")[0];
-            String role = employees[i].split(":")[1];
-
-            //build protobuf from String data
-            Employee employee = Employee.newBuilder().setName(name).setRole(role).build();
-            byte[] value = employee.toByteArray();
+            //protobuf to bytearray
+            byte[] value = employees[i].toByteArray();
 
             //create a producer record
             ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, "key1", value);
