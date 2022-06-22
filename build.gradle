@@ -18,11 +18,20 @@
     add test classes in src/test/java/
     build task also performs testing. to check tests report go to build/tests/test/
 */
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.google.protobuf:protobuf-gradle-plugin:0.8.18'
+    }
+}
 
 plugins {
     id 'java'
-    id "com.google.protobuf" version "0.8.12"
+    id "com.google.protobuf" version "0.8.18"
     id 'application'
+    id 'idea'
 }
 
 group 'org.example'
@@ -32,9 +41,9 @@ repositories {
     mavenCentral()
 }
 
-protobuf {
-    generatedFilesBaseDir = "$projectDir/src"
-}
+//protobuf {
+//    generatedFilesBaseDir = "$projectDir/src"
+//}
 
 dependencies {
     implementation 'com.google.protobuf:protobuf-java:3.19.4'
@@ -47,7 +56,15 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     implementation 'org.slf4j:slf4j-simple:1.7.36'
+
+    //junit4
     testImplementation 'junit:junit:4.13.1'
+}
+
+sourceSets {
+    main {
+
+    }
 }
 
 test {

@@ -34,10 +34,9 @@ public class Producer {
     public void produce(String name, String role) {
         //build protobuf from String data
         Employee employee = Employee.newBuilder().setName(name).setRole(role).build();
-        byte[] value = employee.toByteArray();
 
         //create a producer record
-        ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, "key1", value);
+        ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(topicName, "key1", employee.toByteArray());
 
         //sending the data - asynchronous
         producer.send(producerRecord);

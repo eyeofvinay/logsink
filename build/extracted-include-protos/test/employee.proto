@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-option java_multiple_files = true;
-message Employee {
-   string name = 1;
-   string role = 2;
-}
