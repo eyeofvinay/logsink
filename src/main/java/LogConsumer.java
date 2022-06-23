@@ -55,7 +55,7 @@ public class LogConsumer {
         }
     }
 
-    public Employee[] subscribeAndConsumeTest(int numberOfMessages) throws InvalidProtocolBufferException {
+    public Employee[] subscribeAndConsumeTest(int numberOfMessages) {
         Employee[] messages = new Employee[numberOfMessages];
 
         //subscribe consumer to topic
@@ -63,13 +63,27 @@ public class LogConsumer {
 
         //start consuming
         int i = 0;
+        String key = "KEY";
+        System.out.println("KEY-" + key + ", VALUE-" + System.getenv(key));
         while(true) {
             log.info("Polling...");
             ConsumerRecords<String, byte[]> records = consumer.poll(Duration.ofMillis(100));
             if(!records.isEmpty()) {
                 for(ConsumerRecord<String, byte[]> record : records) {
+                    byte[] received = record.value();
+
                     //parse protobuf from byte array
-                    Employee employee = Employee.parseFrom(record.value());
+                    if(i == 5) {
+                        received[0] = -1;
+                    }
+                    Employee employee = null;
+                    try {
+                        employee = Employee.parseFrom(received);
+                    } catch (InvalidProtocolBufferException e) {
+                        e.printStackTrace();
+                        log.info("Corrupted message found, assigning default values: name= NULL, role = NULL");
+                        employee = Employee.newBuilder().setName("NULL").setRole("NULL").build();
+                    }
                     log.info("KEY-" + record.key() + ", VALUE-" + employee.toString());
                     messages[i++] = employee;
                     if(i == numberOfMessages) {

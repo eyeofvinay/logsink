@@ -1,13 +1,10 @@
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.apache.kafka.clients.admin.*;
-import org.apache.kafka.common.KafkaFuture;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.SQLOutput;
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Properties;
@@ -20,6 +17,7 @@ public class ConsumerTest {
 
     @Before
     public void topicSetup() {
+        System.out.println("val of KEY is:" + System.getenv("KEY"));
         topicName = "topic-" + new Random().nextInt(1000);
         bootStrapServer = "127.0.0.1:9092";
         int NUM_PARTITIONS = 3;
@@ -35,7 +33,7 @@ public class ConsumerTest {
     }
 
     @Test
-    public void testConsumedEarliest() throws InvalidProtocolBufferException {
+    public void testConsumedEarliest() {
         //represent Employee entry as name:role
         String[] expectedData = {"Vinay:intern", "Kevin:SDE-DE", "John:HR", "Ram:Product Manager", "Tom:IT guy"};
         int N = expectedData.length;

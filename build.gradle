@@ -46,6 +46,7 @@ repositories {
 //}
 
 dependencies {
+    //protobuf
     implementation 'com.google.protobuf:protobuf-java:3.19.4'
 
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
@@ -56,6 +57,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
     implementation 'org.slf4j:slf4j-simple:1.7.36'
+
+    //owner
+    implementation 'org.aeonbits.owner:owner:1.0.12'
 
     //junit4
     testImplementation 'junit:junit:4.13.1'
